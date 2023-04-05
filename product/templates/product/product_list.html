@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>제품명</th>
+        <th>가격</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in product_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}원</td>
+            <td>EDIT</td>
+            <td>DELETE</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
