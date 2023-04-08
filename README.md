@@ -50,3 +50,6 @@
             ```html
             <a href="{% url 'product:detail' pk=product.id %}">{{ product.name }}</a>
             ```
+   6. C: ProductCreateView
+      1. views
+         1. ProductCreateView

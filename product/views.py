@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from product.models import Product
 
@@ -12,3 +12,10 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     model = Product
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ['name', 'price']  # '__all__'
+    template_name_suffix = '_create'  # product_form.html -> product_create.html
+    success_url = reverse_lazy('product:list')  # 만들기 성공하면 이동할 url 이름
