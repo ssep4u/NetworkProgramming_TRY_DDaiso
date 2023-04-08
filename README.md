@@ -55,3 +55,16 @@
          1. ProductCreateView
       2. urls
          1. product:add
+      3. templates/product/
+         1. product_create.html
+            ```html
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Add">
+            </form>
+            ```
+         2. **Add Product** in product_list.html
+            ```html
+            <a href="{% url 'product:add' %}">Add Product</a>
+            ```
