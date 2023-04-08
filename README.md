@@ -23,12 +23,18 @@
          4. python manage.py migrate product
             - DB 테이블 만들기
          5. \_\_str\_\_()
-   2. admin
+   2. shell_plus
+      1. python -m pip install django-extensions
+      2. 'django_extensions', in INSTALLED_APPS in settings.py
+         - -(빼기) 아니라 _(밑줄)
+      3. python manage.py shell_plus
+   3. admin
       1. Product
       2. python manage.py createsuperuser
-   3. views
-      1. ProductListView
-   4. urls
-      1. product:list
-   5. templates/product/
-      1. product_list.html
+   4. R: ProductListView
+      1. views
+         1. ProductListView
+      2. urls
+         1. product:list
+      3. templates/product/
+         1. product_list.html <- product_list
