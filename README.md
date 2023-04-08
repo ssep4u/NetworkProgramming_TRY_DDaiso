@@ -77,3 +77,6 @@
       3. templates/product/
          1. product_update.html
          2. add **EDIT** link in product_list.html
+   8. D: ProductDeleteView
+      1. views
+         1. ProductDeleteView

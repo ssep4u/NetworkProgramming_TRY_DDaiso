@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from product.models import Product
 
@@ -26,3 +26,8 @@ class ProductUpdateView(UpdateView):
     fields = ['name', 'price']  # '__all__'
     template_name_suffix = '_update'
     # success_url = reverse_lazy('product:list')  # 수정 성공하면 이동할 url 이름
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('product:list')
