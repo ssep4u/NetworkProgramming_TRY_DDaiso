@@ -43,3 +43,9 @@
          1. ProductDetailView
       2. urls
          1. product:detail
+      3. templates/product/
+         1. product_detail.html
+         2. add detail link in product_list.html
+            ```html
+            <a href="{% url 'product:detail' pk=product.id %}">{{ product.name }}</a>
+            ```
