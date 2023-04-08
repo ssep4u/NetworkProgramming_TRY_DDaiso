@@ -25,4 +25,4 @@ class ProductUpdateView(UpdateView):
     model = Product
     fields = ['name', 'price']  # '__all__'
     template_name_suffix = '_update'
-    success_url = reverse_lazy('product:list')  # 수정 성공하면 이동할 url 이름
+    # success_url = reverse_lazy('product:list')  # 수정 성공하면 이동할 url 이름

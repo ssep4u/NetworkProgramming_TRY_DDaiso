@@ -23,6 +23,7 @@
          4. python manage.py migrate product
             - DB 테이블 만들기
          5. \_\_str\_\_()
+         6. get_absolute_url()
    2. shell_plus
       1. python -m pip install django-extensions
       2. 'django_extensions', in INSTALLED_APPS in settings.py
