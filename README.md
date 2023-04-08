@@ -82,3 +82,6 @@
          1. ProductDeleteView
       2. urls
          1. product:remove
+      3. templates/product/
+         1. product_confirm_delete.html
+         2. add **REMOVE** link in product_list.html

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Product</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    [{{ product }}] 상품을 진짜 지우겠습니까?
+    <input type="submit" value="진짜 삭제">
+    <input type="button" value="지우지마" onclick="history.back();">
+</form>
+</body>
+</html>
