@@ -53,3 +53,5 @@
    6. C: ProductCreateView
       1. views
          1. ProductCreateView
+      2. urls
+         1. product:add
