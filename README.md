@@ -86,3 +86,5 @@
          1. product_confirm_delete.html
          2. add **REMOVE** link in product_list.html
    9. 🧨🎉✨기능 완성
+4. DDaiso/urls
+   1. / -> product:list
