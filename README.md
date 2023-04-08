@@ -38,3 +38,6 @@
          1. product:list
       3. templates/product/
          1. product_list.html <- product_list
+   5. R: ProductDetailView
+      1. views
+         1. ProductDetailView
