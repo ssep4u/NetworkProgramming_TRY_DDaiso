@@ -19,3 +19,10 @@ class ProductCreateView(CreateView):
     fields = ['name', 'price']  # '__all__'
     template_name_suffix = '_create'  # product_form.html -> product_create.html
     success_url = reverse_lazy('product:list')  # 만들기 성공하면 이동할 url 이름
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ['name', 'price']  # '__all__'
+    template_name_suffix = '_update'
+    success_url = reverse_lazy('product:list')  # 수정 성공하면 이동할 url 이름
