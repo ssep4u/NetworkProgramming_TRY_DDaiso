@@ -88,3 +88,11 @@
    9. 🧨🎉✨기능 완성
 4. DDaiso/urls
    1. / -> product:list
+---
+## feature/cloudtype
+1. local
+   1. pip freeze > requirements.txt
+   2. ALLOWED_HOSTS = ['*'] in settings.py
+2. cloudtype
+   1. python manage.py makemigrations
+   2. python manage.py migrate
