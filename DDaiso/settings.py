@@ -125,3 +125,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Bootstrap
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #static 파일 모을 폴더
+STATICFILES_DIRS = [    #프로젝트 전체에 사용할 static 파일 폴더
+    os.path.join(BASE_DIR, 'static')
+]

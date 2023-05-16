@@ -96,3 +96,12 @@
 2. cloudtype
    1. python manage.py makemigrations
    2. python manage.py migrate
+---
+## feature/bootstrap
+1. html 내용 중 중복된 것 합치고, 실제 바뀌어야 하는 부분만 남기자
+   1. extends 'base.html'; block title, content
+   2. add DIRS in TEMPLATES in settings.py
+2. add Bootstrap css, js file
+   1. static/css/bootstrap.min.css, static/js/bootstrap.min.js
+   2. add STATIC_ROOT, STATICFILES_DIRS in settings.py
+   3. add Bootstrap class in .html
