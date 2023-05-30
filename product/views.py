@@ -32,3 +32,9 @@ class ProductUpdateView(UpdateView):
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('product:list')
+
+
+def list_product(request):
+    product_list = Product.objects.all()  # product 다 가져오자
+    context = {'product_list': product_list}
+    return render(request, 'product/product_list.html', context)
