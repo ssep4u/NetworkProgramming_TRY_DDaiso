@@ -38,3 +38,9 @@ def list_product(request):
     product_list = Product.objects.all()  # product 다 가져오자
     context = {'product_list': product_list}
     return render(request, 'product/product_list.html', context)
+
+
+def detail_product(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {'product': product}
+    return render(request, 'product/product_detail.html', context)
