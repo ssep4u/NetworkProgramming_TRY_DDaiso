@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
+from product.forms import ProductCreationForm
 from product.models import Product
 
 
@@ -44,3 +45,14 @@ def detail_product(request, pk):
     product = Product.objects.get(pk=pk)
     context = {'product': product}
     return render(request, 'product/product_detail.html', context)
+
+
+def create_product(request):
+    if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
+        form = ProductCreationForm(request.POST)  # form 가져오자
+        if form.is_valid():
+            form.save()  # new_product 저장하자
+        return redirect('product:list2')
+    else:  # 빈 폼
+        form = ProductCreationForm()
+    return render(request, 'product/product_create.html', {'form': form})
