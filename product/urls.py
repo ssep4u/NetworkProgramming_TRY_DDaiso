@@ -15,4 +15,5 @@ urlpatterns = [
     path('edit/<int:pk>/', ProductUpdateView.as_view(), name='edit'),  # product:edit
     path('edit2/<int:pk>/', views.update_product, name='edit2'),  # product:edit2
     path('remove/<int:pk>/', ProductDeleteView.as_view(), name='remove'),  # product:remove
+    path('remove2/<int:pk>/', views.delete_product, name='remove2'),  # product:remove
 ]

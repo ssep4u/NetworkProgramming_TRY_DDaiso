@@ -71,3 +71,13 @@ def update_product(request, pk):
         product = Product.objects.get(pk=pk)
         form = ProductChangeForm(instance=product)
     return render(request, 'product/product_update.html', {'form': form})
+
+
+def delete_product(request, pk):
+    if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
+        product = Product.objects.get(pk=pk)  # pk에 해당하는 product 가져오자
+        product.delete()  # product 삭제하자
+        return redirect('product:list2')
+    else:
+        product = Product.objects.get(pk=pk)
+    return render(request, 'product/product_confirm_delete.html', {'product': product})
