@@ -49,7 +49,7 @@ def detail_product(request, pk):
 
 def create_product(request):
     if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
-        form = ProductCreationForm(request.POST)  # form 가져오자
+        form = ProductCreationForm(request.POST, request.FILES)  # form 가져오자    주의! files는 request.FILES로 꼭 지정해줘야 함
         if form.is_valid():
             form.save()  # new_product 저장하자
         return redirect('product:list2')
