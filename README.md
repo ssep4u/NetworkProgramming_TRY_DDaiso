@@ -143,3 +143,4 @@
    1. product/models
    2. python manage.py makemigrations product
    3. python manage.py migrate product
+3. admin
