@@ -1,3 +1,6 @@
 .image-list {
     height: 80px;
 }
+.image-detail {
+    max-width: 100%;
+}
