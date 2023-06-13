@@ -159,3 +159,5 @@
    1. product/forms
    2. product/views
    3. product/templates/product/product_update
+8. D: Remove Product
+   1. product/templates/product/product_confirm_delete
