@@ -24,4 +24,4 @@ class ProductChangeForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['name', 'price']  # '__all__'
+        fields = ['name', 'price', 'image']  # '__all__'

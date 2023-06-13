@@ -59,13 +59,11 @@ def create_product(request):
 
 
 def update_product(request, pk):
+    product = Product.objects.get(pk=pk)  # pk에 해당하는 product 가져오자
     if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
-        form = ProductChangeForm(request.POST)  # form 가져오자
+        form = ProductChangeForm(request.POST, request.FILES, instance=product)  # form 가져오자    주의! files는 request.FILES로 꼭 지정해줘야 함
         if form.is_valid():
-            product = Product.objects.get(pk=pk)  # pk에 해당하는 product 가져오자
-            product.name = form.cleaned_data.get('name')  # 사용자가 입력한 name set
-            product.price = form.cleaned_data.get('price')  # 사용자가 입력한 price set
-            product.save()  # 수정한 product 저장하자
+            form.save()  # 수정한 product 저장하자
         return redirect('product:list2')
     else:
         product = Product.objects.get(pk=pk)
