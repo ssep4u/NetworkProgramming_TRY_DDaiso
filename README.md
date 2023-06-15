@@ -168,3 +168,5 @@
       1. python manage.py makemigrations product
       2. python manage.py migrate product
    2. product/admin
+      1. ReviewInLine
+      2. ProductAdmin
