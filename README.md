@@ -170,3 +170,4 @@
    2. product/admin
       1. ReviewInLine
       2. ProductAdmin
+   3. product/templates/product/product_list
