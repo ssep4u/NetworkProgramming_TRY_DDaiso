@@ -161,3 +161,9 @@
    3. product/templates/product/product_update
 8. D: Remove Product
    1. product/templates/product/product_confirm_delete
+---
+## feature/review
+1. R: Product List
+   1. product/models
+      1. python manage.py makemigrations product
+      2. python manage.py migrate product
