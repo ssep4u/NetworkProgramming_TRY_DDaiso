@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Remove Review{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">
+            [{{ review }}] 상품평을 진짜 지우겠습니까?
+        </div>
+
+        <input type="submit" value="진짜 삭제" class="btn btn-danger">
+        <input type="button" value="지우지마" onclick="history.back();" class="btn btn-light">
+    </form>
+{% endblock %}

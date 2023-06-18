@@ -106,3 +106,13 @@ def edit2_review(request, product_pk, review_pk):
         form = ReviewChangeForm(instance=review)
         context = {'form': form}
     return render(request, 'product/review_update.html', context)
+
+
+def remove2_review(request, product_pk, review_pk):
+    review = get_object_or_404(Review, pk=review_pk)  # pk에 해당하는 review 가져오자
+    if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
+        review.delete()  # review 삭제하자
+        return redirect('product:detail2', pk=product_pk)
+    else:
+        pass
+    return render(request, 'product/review_confirm_delete.html', {'review': review})

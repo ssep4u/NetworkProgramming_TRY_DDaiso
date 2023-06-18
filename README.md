@@ -183,3 +183,7 @@
    2. product/views edit2_review
    3. product/urls product:edit2_review
    4. product/templates/product/review_update, product_update, product_detail
+5. D: Remove Review
+   1. product/views remove2_review
+   2. product/urls product:remove2_review
+   3. product/templates/product/review_confirm_delete, product_confirm_delete, product_update, product_detail

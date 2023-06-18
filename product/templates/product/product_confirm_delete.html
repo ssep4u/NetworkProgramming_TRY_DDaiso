@@ -8,12 +8,20 @@
         <div class="alert alert-danger">
             [{{ product }}] 상품을 진짜 지우겠습니까?
             <div>
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="image-detail">
-            {% else %}
-                없음
-            {% endif %}
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="image-detail">
+                {% else %}
+                    없음
+                {% endif %}
             </div>
+            <hr>
+            <ul>
+                {% if product.review_set.count > 0 %}
+                    {% for review in product.review_set.all %}
+                        <li>{{ review }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
         </div>
 
         <input type="submit" value="진짜 삭제" class="btn btn-danger">

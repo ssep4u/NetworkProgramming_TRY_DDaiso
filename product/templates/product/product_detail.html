@@ -14,7 +14,10 @@
     <ul>
         {% if product.review_set.count > 0 %}
             {% for review in product.review_set.all %}
-                <li>{{ review }} <a href="{% url 'product:edit2_review' product_pk=product.id review_pk=review.id  %}" class="btn btn-primary btn-sm">EDIT</a></li>
+                <li>{{ review }}
+                    <a href="{% url 'product:edit2_review' product_pk=product.id review_pk=review.id  %}" class="btn btn-primary btn-sm">EDIT</a>
+                    <a href="{% url 'product:remove2_review' product_pk=product.id review_pk=review.id  %}" class="btn btn-danger btn-sm">REMOVE</a>
+                </li>
             {% endfor %}
         {% endif %}
     </ul>
