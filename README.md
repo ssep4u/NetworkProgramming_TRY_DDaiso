@@ -171,3 +171,5 @@
       1. ReviewInLine
       2. ProductAdmin
    3. product/templates/product/product_list
+2. R: Product Detail
+   1. product/templates/product/product_detail
