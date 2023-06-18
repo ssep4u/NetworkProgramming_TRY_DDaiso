@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
@@ -42,7 +42,7 @@ def list_product(request):
 
 
 def detail_product(request, pk):
-    product = Product.objects.get(pk=pk)
+    product = get_object_or_404(Product, pk=pk)
     context = {'product': product}
     return render(request, 'product/product_detail.html', context)
 
@@ -59,23 +59,22 @@ def create_product(request):
 
 
 def update_product(request, pk):
-    product = Product.objects.get(pk=pk)  # pk에 해당하는 product 가져오자
+    product = get_object_or_404(Product, pk=pk)  # pk에 해당하는 product 가져오자
     if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
         form = ProductChangeForm(request.POST, request.FILES, instance=product)  # form 가져오자    주의! files는 request.FILES로 꼭 지정해줘야 함
         if form.is_valid():
             form.save()  # 수정한 product 저장하자
         return redirect('product:list2')
     else:
-        product = Product.objects.get(pk=pk)
         form = ProductChangeForm(instance=product)
     return render(request, 'product/product_update.html', {'form': form})
 
 
 def delete_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)  # pk에 해당하는 product 가져오자
     if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
-        product = Product.objects.get(pk=pk)  # pk에 해당하는 product 가져오자
         product.delete()  # product 삭제하자
         return redirect('product:list2')
     else:
-        product = Product.objects.get(pk=pk)
+        pass
     return render(request, 'product/product_confirm_delete.html', {'product': product})
