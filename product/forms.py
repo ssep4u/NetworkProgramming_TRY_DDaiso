@@ -34,3 +34,12 @@ class ReviewCreationForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['product', 'contents']
+
+
+class ReviewChangeForm(forms.ModelForm):
+    product = forms.ModelChoiceField(queryset=Product.objects.all(), widget=forms.HiddenInput)  # product 선택창은 숨기자
+    contents = forms.CharField(label="댓글", widget=forms.TextInput)  # 한줄짜리 <input type="text">로 하자
+
+    class Meta:
+        model = Review
+        fields = ['product', 'contents']

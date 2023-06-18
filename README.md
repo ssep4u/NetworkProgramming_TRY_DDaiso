@@ -178,3 +178,8 @@
    2. product/views add2_review
    3. product/urls product:add2_review
    4. product/templates/product/review_create, product_detail
+4. U: Edit Review
+   1. product/forms ReviewChangeForm
+   2. product/views edit2_review
+   3. product/urls product:edit2_review
+   4. product/templates/product/review_update, product_update, product_detail

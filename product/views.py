@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
-from product.forms import ProductCreationForm, ProductChangeForm, ReviewCreationForm
-from product.models import Product
+from product.forms import ProductCreationForm, ProductChangeForm, ReviewCreationForm, ReviewChangeForm
+from product.models import Product, Review
 
 
 class ProductListView(ListView):
@@ -68,7 +68,7 @@ def update_product(request, pk):
         return redirect('product:list2')
     else:
         form = ProductChangeForm(instance=product)
-    return render(request, 'product/product_update.html', {'form': form})
+    return render(request, 'product/product_update.html', {'form': form, 'product': product})
 
 
 def delete_product(request, pk):
@@ -93,3 +93,16 @@ def add2_review(request, product_pk):
         form = ReviewCreationForm(initial=initial)
         context = {'form': form, 'product': product}
     return render(request, 'product/review_create.html', context)
+
+
+def edit2_review(request, product_pk, review_pk):
+    review = get_object_or_404(Review, pk=review_pk)
+    if request.method == 'POST':
+        form = ReviewChangeForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+        return redirect('product:detail2', pk=product_pk)
+    else:
+        form = ReviewChangeForm(instance=review)
+        context = {'form': form}
+    return render(request, 'product/review_update.html', context)
