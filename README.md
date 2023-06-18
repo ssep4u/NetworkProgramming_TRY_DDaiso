@@ -173,3 +173,8 @@
    3. product/templates/product/product_list
 2. R: Product Detail
    1. product/templates/product/product_detail
+3. C: Add Review
+   1. product/forms ReviewCreationForm
+   2. product/views add2_review
+   3. product/urls product:add2_review
+   4. product/templates/product/review_create, product_detail

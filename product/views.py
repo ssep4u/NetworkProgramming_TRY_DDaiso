@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
-from product.forms import ProductCreationForm, ProductChangeForm
+from product.forms import ProductCreationForm, ProductChangeForm, ReviewCreationForm
 from product.models import Product
 
 
@@ -61,7 +61,8 @@ def create_product(request):
 def update_product(request, pk):
     product = get_object_or_404(Product, pk=pk)  # pk에 해당하는 product 가져오자
     if request.method == 'POST':  # 사용자가 입력하고 버튼 눌렀을 때
-        form = ProductChangeForm(request.POST, request.FILES, instance=product)  # form 가져오자    주의! files는 request.FILES로 꼭 지정해줘야 함
+        form = ProductChangeForm(request.POST, request.FILES,
+                                 instance=product)  # form 가져오자    주의! files는 request.FILES로 꼭 지정해줘야 함
         if form.is_valid():
             form.save()  # 수정한 product 저장하자
         return redirect('product:list2')
@@ -78,3 +79,17 @@ def delete_product(request, pk):
     else:
         pass
     return render(request, 'product/product_confirm_delete.html', {'product': product})
+
+
+def add2_review(request, product_pk):
+    if request.method == 'POST':
+        form = ReviewCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('product:detail2', pk=product_pk)
+    else:
+        product = get_object_or_404(Product, pk=product_pk)
+        initial = {'product': product}
+        form = ReviewCreationForm(initial=initial)
+        context = {'form': form, 'product': product}
+    return render(request, 'product/review_create.html', context)
